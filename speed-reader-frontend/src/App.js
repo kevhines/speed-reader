@@ -1,7 +1,9 @@
+import Sentences from "./components/Sentences"
+
 
 function App() {
   return (
-    <div className="App">App Component</div>
+    <div className="App"><Sentences /></div>
   );
 }
 
