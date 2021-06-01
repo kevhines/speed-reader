@@ -1,8 +1,8 @@
 class SentencesController < ApplicationController
 
     def index
-        sentences = Sentence.allow
-        render jason: sentences
+        sentences = Sentence.all
+        render json: sentences
     end
-    
+
 end

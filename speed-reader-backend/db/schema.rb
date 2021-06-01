@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2021_06_01_191712) do
 
   create_table "sentences", force: :cascade do |t|
     t.string "content"
-    t.string "difficutly"
-    t.boolean "valid"
+    t.string "difficulty"
+    t.boolean "good", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
