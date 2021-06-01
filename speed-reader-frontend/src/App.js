@@ -1,10 +1,10 @@
-import Sentences from "./components/Sentences"
-import SentenceForm from "./components/SentenceForm"
+import SentenceContainer from "./containers/SentenceContainer"
+
 
 
 function App() {
   return (
-    <div className="App"><SentenceForm /><Sentences /></div>
+    <div className="App"><SentenceContainer /></div>
   );
 }
 

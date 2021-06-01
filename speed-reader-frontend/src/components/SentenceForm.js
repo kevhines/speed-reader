@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
+import addSentence from '../actions/addSentence'
 
 class SentenceForm extends Component {
 
@@ -16,7 +17,7 @@ class SentenceForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state.sentence)
+        this.props.addSentence(this.state.sentence)
         this.setState({sentence: ""})
     }
 
@@ -33,4 +34,4 @@ class SentenceForm extends Component {
 
   
   
-  export default SentenceForm
+  export default connect(null, {addSentence})(SentenceForm)
