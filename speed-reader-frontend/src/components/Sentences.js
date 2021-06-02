@@ -10,7 +10,6 @@ class Sentences extends Component {
     }
 
     renderSentences = () => { 
-        console.log(this)
        return this.props.sentences.map(sentence => <li key={sentence.id}>{sentence.content}</li>) 
     }
 
