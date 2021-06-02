@@ -7,24 +7,24 @@ class SentenceForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            sentence: ""
+            content: ""
         }
     }
 
     handleChange = (e) => {
-        this.setState({sentence: e.target.value})
+        this.setState({content: e.target.value})
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.addSentence(this.state.sentence)
-        this.setState({sentence: ""})
+        this.props.addSentence(this.state.content)
+        this.setState({content: ""})
     }
 
     render() {
     return (
         <form onSubmit={this.handleSubmit}>
-            <input type="text" name="content" onChange={this.handleChange} value={this.state.sentence}></input>
+            <input type="text" name="content" onChange={this.handleChange} value={this.state.content}></input>
             <input type="submit"></input>
         </form>
     )

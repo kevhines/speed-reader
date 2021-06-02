@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import editSentence from '../actions/editSentence'
+import delSentence from '../actions/delSentence'
 
 class EditSentence extends Component {
 
@@ -10,32 +11,41 @@ class EditSentence extends Component {
         let sentence = (props.sentences) ? props.sentences.find(sentence => sentence.id === id) : {}
         this.state = {
             id: id,
-            sentence: (sentence) ? sentence.content : ""
+            content: (sentence) ? sentence.content : ""
         }
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.sentences.length === 0) { 
             let sentence = this.props.sentences.find(sentence => sentence.id === this.state.id) 
-            this.setState({sentence: sentence.content})
+            this.setState({content: sentence.content})
         }
     }
 
     handleChange = (e) => {
-        this.setState({sentence: e.target.value})
+        this.setState({content: e.target.value})
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
+        console.log(this.state)
         this.props.editSentence(this.state)
+    }
+
+    handleClick = (e) => {
+        this.props.delSentence(this.state.id)
+        this.props.history.push("/sentences")
     }
 
     render() {
     return (
+        <>
         <form onSubmit={this.handleSubmit}>
-            <input type="text" name="content" onChange={this.handleChange} value={this.state.sentence}></input>
+            <input type="text" name="content" onChange={this.handleChange} value={this.state.content}></input>
             <input type="submit"></input>
         </form>
+        <button onClick={this.handleClick}>Delete</button>
+        </>
     )
     }
 }
@@ -45,4 +55,4 @@ function mapStateToProps(state) {
     return {sentences: state.sentences}
   }
 
-export default connect(mapStateToProps, {editSentence})(EditSentence)
+export default connect(mapStateToProps, {editSentence, delSentence})(EditSentence)
