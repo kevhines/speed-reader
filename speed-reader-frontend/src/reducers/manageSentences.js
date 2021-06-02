@@ -3,8 +3,9 @@ export default function manageSentences(state = {sentences: []}, action) {
     case 'FETCH_SENTENCES':
         return {sentences: action.payload}
 
-    case 'ADD_SENTENCES': 
-        return state
+    case 'ADD_SENTENCE':
+        return {sentences: [...state.sentences, action.payload]}
+    
     default:    
         return state
     }
