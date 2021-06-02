@@ -31,7 +31,4 @@ class SentenceForm extends Component {
     }
 }
 
-
-  
-  
-  export default connect(null, {addSentence})(SentenceForm)
+export default connect(null, {addSentence})(SentenceForm)

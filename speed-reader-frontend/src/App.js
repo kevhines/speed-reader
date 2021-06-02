@@ -1,30 +1,37 @@
-import SentenceContainer from "./containers/SentenceContainer"
-import {useEffect} from 'react'
+import {Component} from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {connect} from 'react-redux'
 import NavBar from './NavBar'
+import SentenceContainer from "./containers/SentenceContainer"
+import EditSentence from "./components/EditSentence"
+import fetchSentences from './actions/fetchSentences'
 
 
-function loginCheck() {
-  console.log("mounted")
-  localStorage.setItem('username', 'Kevin Hines');
+class App extends Component {
+
+
+  componentDidMount() {
+    // debugger
+    console.log("mounted")
+    localStorage.setItem('username', 'Kevin Hines');
+    this.props.fetchSentences()
 }
 
-function postUser() {
-  let username = localStorage.getItem('username');
-  console.log(username)
+componentDidUpdate() {
+    let username = localStorage.getItem('username');
+    console.log(username)
 }
-
-function App() {
-  useEffect(loginCheck, []);
-  useEffect(postUser);
-  
+ 
+  render () {
   return (
     <Router>
       <NavBar />
       <Route exact path="/" render={() => <div>Home</div>} />
-      <Route path='/sentences' render={routerProps => <SentenceContainer {...routerProps} />} />
-    </Router>
-  );
+      <Route exact path='/sentences' render={routerProps => <SentenceContainer {...routerProps} />} />
+      <Route exact path='/sentences/:sentenceID/edit' render={routerProps => <EditSentence {...routerProps} />} />
+     </Router>
+  )
+  }
 }
 
-export default App;
+export default connect(null, {fetchSentences})(App)

@@ -1,16 +1,12 @@
 import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
-import fetchSentences from '../actions/fetchSentences'
+import {Link} from 'react-router-dom'
 
 class Sentences extends Component {
 
 
-    componentDidMount() {
-        this.props.fetchSentences()
-    }
-
     renderSentences = () => { 
-       return this.props.sentences.map(sentence => <li key={sentence.id}>{sentence.content}</li>) 
+       return this.props.sentences.map(sentence => <li key={sentence.id}><Link to={`/sentences/${sentence.id}/edit`}>{sentence.content}</Link></li>) 
     }
 
     render() {
@@ -27,4 +23,4 @@ function mapStateToProps(state) {
   }
   
   
-  export default connect(mapStateToProps, {fetchSentences})(Sentences)
+  export default connect(mapStateToProps)(Sentences)
