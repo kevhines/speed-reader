@@ -28,7 +28,7 @@ class SentencesController < ApplicationController
     def destroy
         sentence = Sentence.find_by(id: params[:id])
         sentence.destroy
-        render json: "Sentence Deleted!"
+        render json: sentence
     end
 
     private

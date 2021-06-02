@@ -5,11 +5,21 @@ import {Link} from 'react-router-dom'
 class Sentences extends Component {
 
 
-    renderSentences = () => { 
-       return this.props.sentences.map(sentence => <li key={sentence.id}><Link to={`/sentences/${sentence.id}/edit`}>{sentence.content}</Link></li>) 
+    renderSentences = () => {
+        console.log("got to render") 
+       if (this.props.sentences) {
+            return this.props.sentences.map(sentence => <li key={sentence.id}><Link to={`/sentences/${sentence.id}/edit`}>{sentence.content}</Link></li>) 
+       } else {
+           console.log("null")
+          
+        //    debugger
+           return null
+       }
+
     }
 
     render() {
+        // debugger
     return (
         <>
         {this.renderSentences()}

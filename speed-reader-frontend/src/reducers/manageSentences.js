@@ -16,6 +16,7 @@ export default function manageSentences(state = {sentences: []}, action) {
     case 'DEL_SENTENCE':
         console.log(action)
         console.log("deleting")
+        // debugger
         return state.sentences.filter(sentence => sentence.id !== action.payload)
         // console.log(newSentences)
         // return {sentences: newSentences}
