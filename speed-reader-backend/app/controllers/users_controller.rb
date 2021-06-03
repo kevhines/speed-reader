@@ -20,10 +20,19 @@ class UsersController < ApplicationController
         end
     end  
 
+    def find
+        user = User.find_by(id: params[:user][:id])
+        if user
+            render json: user
+        else
+            render json: "Invalid User ID"
+        end
+    end  
+
     private
     
     def user_params
-        params.require(:user).permit(:username, :password)
+        params.require(:user).permit(:username, :password, :id)
     end
 
 

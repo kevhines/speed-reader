@@ -5,6 +5,7 @@ import NavBar from './NavBar'
 import SentenceContainer from "./containers/SentenceContainer"
 import EditSentence from "./components/EditSentence"
 import fetchSentences from './actions/fetchSentences'
+import findUser from './actions/findUser'
 import SignUp from "./components/SignUp"
 import LogIn from "./components/LogIn"
 
@@ -14,13 +15,22 @@ class App extends Component {
   componentDidMount() {
     // debugger
     console.log("mounted: data fetching")
-    localStorage.setItem('username', 'Kevin Hines');
     this.props.fetchSentences()
+    let userID = localStorage.getItem('userID');
+    if (userID) {
+      this.props.findUser(userID)
+    }
 }
 
-componentDidUpdate() {
-    let username = localStorage.getItem('username');
-    console.log(username)
+componentDidUpdate(prevProps) {
+    console.log("updated App")
+    console.log(prevProps)
+    console.log(this.props)
+    if (this.props.user.id) { //and doesn't equal current userID
+      localStorage.setItem('userID', this.props.user.id);
+    }
+    let tempID = localStorage.getItem('userID');
+    console.log(tempID)
 }
  
   render () {
@@ -37,4 +47,10 @@ componentDidUpdate() {
   }
 }
 
-export default connect(null, {fetchSentences})(App)
+
+function mapStateToProps(state) {
+  // debugger
+  return {user: state.user}
+}
+
+export default connect(mapStateToProps, {fetchSentences, findUser})(App)

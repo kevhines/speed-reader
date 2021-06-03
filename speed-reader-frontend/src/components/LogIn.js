@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import findUser from '../actions/findUser'
+import loginUser from '../actions/loginUser'
 
 class LogIn extends Component {
 
@@ -23,7 +23,8 @@ class LogIn extends Component {
         let newUser = {user: this.state}
         console.log(newUser)
         // debugger
-        this.props.findUser(newUser)
+        this.props.loginUser(newUser)
+        this.props.history.push("/")
     }
 
     render() {
@@ -37,4 +38,4 @@ class LogIn extends Component {
     }
 }
 
-export default connect(null, {findUser})(LogIn)
+export default connect(null, {loginUser})(LogIn)

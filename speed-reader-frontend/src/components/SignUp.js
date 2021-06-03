@@ -24,6 +24,7 @@ class SignUp extends Component {
         console.log(newUser)
         // debugger
         this.props.addUser(newUser)
+        this.props.history.push("/")
     }
 
     render() {
