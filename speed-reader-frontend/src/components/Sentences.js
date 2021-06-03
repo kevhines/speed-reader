@@ -9,8 +9,6 @@ class Sentences extends Component {
         console.log("got to Sentences render") 
 // debugger
             return this.props.sentences.map(sentence => <li key={sentence.id}><Link to={`/sentences/${sentence.id}/edit`}>{sentence.content}</Link></li>) 
-
-
     }
 
     render() {

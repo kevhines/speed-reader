@@ -10,10 +10,9 @@ export default function manageUser(state = {}, action) {
         // localStorage.setItem('userID', action.payload.id);
         return {username: action.payload.username, id: action.payload.id}
 
-    // case 'CLEAR_USER':
-    //     console.log(action.payload)
-    //     return {username: ""}
-    //     // return state
+    case 'LOGOUT_USER':
+        console.log(action.payload)
+        return {username: {}}
  
     default:    
         return state

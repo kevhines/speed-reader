@@ -36,9 +36,10 @@ componentDidUpdate(prevProps) {
 }
  
   render () {
+
   return (
     <Router>
-      <NavBar />
+      <NavBar userID={this.props.user.id} />
       <Route exact path="/" component={Home} />
       <Route exact path='/sentences' component={SentenceContainer} />
       <Route exact path='/sentences/:sentenceID/edit' component={routerProps => <EditSentence {...routerProps} />} />
