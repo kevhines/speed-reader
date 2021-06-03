@@ -29,6 +29,7 @@ componentDidUpdate() {
       <Route exact path="/" render={() => <div>Home</div>} />
       <Route exact path='/sentences' render={routerProps => <SentenceContainer {...routerProps} />} />
       <Route exact path='/sentences/:sentenceID/edit' render={routerProps => <EditSentence {...routerProps} />} />
+    
      </Router>
   )
   }
