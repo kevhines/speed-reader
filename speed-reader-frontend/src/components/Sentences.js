@@ -7,14 +7,15 @@ class Sentences extends Component {
 
     renderSentences = () => {
         console.log("got to render") 
-       if (this.props.sentences) {
+        // debugger
+    //    if (this.props.sentences) {
             return this.props.sentences.map(sentence => <li key={sentence.id}><Link to={`/sentences/${sentence.id}/edit`}>{sentence.content}</Link></li>) 
-       } else {
-           console.log("null")
+    //    } else {
+    //        console.log("null")
           
-        //    debugger
-           return null
-       }
+    //     //    debugger
+    //        return null
+    //    }
 
     }
 
@@ -29,6 +30,7 @@ class Sentences extends Component {
 }
 
 function mapStateToProps(state) {
+    // debugger
     return {sentences: state.sentences}
   }
   

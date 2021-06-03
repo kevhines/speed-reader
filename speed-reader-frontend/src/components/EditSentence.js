@@ -30,10 +30,12 @@ class EditSentence extends Component {
         e.preventDefault()
         console.log(this.state)
         this.props.editSentence(this.state)
+        this.props.history.push("/sentences")
     }
 
     handleClick = (e) => {
         this.props.delSentence(this.state.id)
+        // debugger
         this.props.history.push("/sentences")
     }
 

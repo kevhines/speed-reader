@@ -1,4 +1,5 @@
 export default function manageSentences(state = {sentences: []}, action) {
+    let newSentences
     switch (action.type) {
     case 'FETCH_SENTENCES':
         return {sentences: action.payload}
@@ -8,7 +9,7 @@ export default function manageSentences(state = {sentences: []}, action) {
 
     case 'EDIT_SENTENCE':
         console.log(action.payload)
-        let newSentences = state.sentences.map(sentence => (sentence.id === action.payload.id) ? action.payload : sentence)
+        newSentences = state.sentences.map(sentence => (sentence.id === action.payload.id) ? action.payload : sentence)
         console.log("edit state")
         return {sentences: newSentences}
         // return state
@@ -17,7 +18,8 @@ export default function manageSentences(state = {sentences: []}, action) {
         console.log(action)
         console.log("deleting")
         // debugger
-        return state.sentences.filter(sentence => sentence.id !== action.payload)
+        newSentences = state.sentences.filter(sentence => sentence.id !== action.payload)
+        return {sentences: newSentences}
         // console.log(newSentences)
         // return {sentences: newSentences}
  
