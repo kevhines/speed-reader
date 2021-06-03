@@ -1,19 +1,16 @@
-import React, {Component, Fragment} from 'react'
+// import React, {Fragment} from 'react'
 // import {connect} from 'react-redux'
 import Sentences from "../components/Sentences"
 import SentenceForm from "../components/SentenceForm"
 
-class SentenceContainer extends Component {
 
-    render() {
+function SentenceContainer(){
     return (
-        <>
-        <SentenceForm />
-        <Sentences />
-        </>
-    )
-    }
-}
-
+          <>
+            <SentenceForm />
+            <Sentences />
+          </>
+        )
+  }
   
   export default SentenceContainer

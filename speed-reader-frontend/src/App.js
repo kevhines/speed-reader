@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {connect} from 'react-redux'
 import NavBar from './NavBar'
 import SentenceContainer from "./containers/SentenceContainer"
+import GameContainer from "./containers/GameContainer"
+import Home from "./components/Home"
 import EditSentence from "./components/EditSentence"
 import fetchSentences from './actions/fetchSentences'
 import findUser from './actions/findUser'
@@ -37,11 +39,12 @@ componentDidUpdate(prevProps) {
   return (
     <Router>
       <NavBar />
-      <Route exact path="/" render={() => <div>Home</div>} />
-      <Route exact path='/sentences' render={routerProps => <SentenceContainer {...routerProps} />} />
-      <Route exact path='/sentences/:sentenceID/edit' render={routerProps => <EditSentence {...routerProps} />} />
+      <Route exact path="/" component={Home} />
+      <Route exact path='/sentences' component={SentenceContainer} />
+      <Route exact path='/sentences/:sentenceID/edit' component={routerProps => <EditSentence {...routerProps} />} />
       <Route exact path='/signup' render={routerProps => <SignUp {...routerProps} />} />
       <Route exact path='/login' render={routerProps => <LogIn {...routerProps} />} />
+      <Route exact path='/game' component={GameContainer} />
      </Router>
   )
   }
