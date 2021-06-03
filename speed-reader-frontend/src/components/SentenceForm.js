@@ -24,8 +24,8 @@ class SentenceForm extends Component {
     render() {
     return (
         <form onSubmit={this.handleSubmit}>
-            <input type="text" name="content" onChange={this.handleChange} value={this.state.content}></input>
-            <input type="submit"></input>
+            <textarea name="content" rows="5" cols="60" onChange={this.handleChange} value={this.state.content} />
+            <input type="submit" />
         </form>
     )
     }
