@@ -5,14 +5,14 @@ import NavBar from './NavBar'
 import SentenceContainer from "./containers/SentenceContainer"
 import EditSentence from "./components/EditSentence"
 import fetchSentences from './actions/fetchSentences'
-
+import SignUp from "./components/SignUp"
 
 class App extends Component {
 
 
   componentDidMount() {
     // debugger
-    console.log("mounted")
+    console.log("mounted: data fetching")
     localStorage.setItem('username', 'Kevin Hines');
     this.props.fetchSentences()
 }
@@ -29,7 +29,7 @@ componentDidUpdate() {
       <Route exact path="/" render={() => <div>Home</div>} />
       <Route exact path='/sentences' render={routerProps => <SentenceContainer {...routerProps} />} />
       <Route exact path='/sentences/:sentenceID/edit' render={routerProps => <EditSentence {...routerProps} />} />
-    
+      <Route exact path='/signup' render={routerProps => <SignUp {...routerProps} />} />
      </Router>
   )
   }

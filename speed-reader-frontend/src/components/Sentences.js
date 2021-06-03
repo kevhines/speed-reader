@@ -7,15 +7,9 @@ class Sentences extends Component {
 
     renderSentences = () => {
         console.log("got to render") 
-        // debugger
-    //    if (this.props.sentences) {
+// debugger
             return this.props.sentences.map(sentence => <li key={sentence.id}><Link to={`/sentences/${sentence.id}/edit`}>{sentence.content}</Link></li>) 
-    //    } else {
-    //        console.log("null")
-          
-    //     //    debugger
-    //        return null
-    //    }
+
 
     }
 
