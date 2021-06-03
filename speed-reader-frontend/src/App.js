@@ -6,6 +6,7 @@ import SentenceContainer from "./containers/SentenceContainer"
 import EditSentence from "./components/EditSentence"
 import fetchSentences from './actions/fetchSentences'
 import SignUp from "./components/SignUp"
+import LogIn from "./components/LogIn"
 
 class App extends Component {
 
@@ -30,6 +31,7 @@ componentDidUpdate() {
       <Route exact path='/sentences' render={routerProps => <SentenceContainer {...routerProps} />} />
       <Route exact path='/sentences/:sentenceID/edit' render={routerProps => <EditSentence {...routerProps} />} />
       <Route exact path='/signup' render={routerProps => <SignUp {...routerProps} />} />
+      <Route exact path='/login' render={routerProps => <LogIn {...routerProps} />} />
      </Router>
   )
   }

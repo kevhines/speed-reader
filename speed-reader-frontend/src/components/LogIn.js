@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import addUser from '../actions/addUser'
+import findUser from '../actions/findUser'
 
-class Login extends Component {
+class LogIn extends Component {
 
     constructor(props) {
         super(props)
@@ -18,12 +18,12 @@ class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log("sign up code goes here")
+        console.log("login code goes here")
         console.log(this)
         let newUser = {user: this.state}
         console.log(newUser)
         // debugger
-        this.props.addUser(newUser)
+        this.props.findUser(newUser)
     }
 
     render() {
@@ -37,4 +37,4 @@ class Login extends Component {
     }
 }
 
-export default connect(null, {addUser})(Login)
+export default connect(null, {findUser})(LogIn)
