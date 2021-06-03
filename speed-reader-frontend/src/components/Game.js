@@ -34,6 +34,12 @@ class Game extends Component {
     renderGame = () => {
         if (this.state.gameStarted) {
             //  return this.displaySentence()
+                if (this.state.display) {
+                    // debugger
+                    return this.state.gameSentences[0].content
+                } else {
+                    return "FORM"
+                }
         } else {
              return <button onClick={this.handleClick}>Start Game</button>
         }
