@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
+import Results from './Results'
 
 
 class Game extends Component {
@@ -10,7 +11,10 @@ class Game extends Component {
             gameStarted: false,
             display: false,
             number: 2,
-            gameSentences: []
+            turn: 0,
+            answer: "",
+            gameSentences: [],
+            answers: []
         }
     }
 
@@ -21,27 +25,53 @@ class Game extends Component {
         let n = this.state.number
         let selected = shuffled.slice(0, n);
         console.log(selected)
-        this.setState({gameSentences: selected})
+        this.setState({
+            gameSentences: selected, 
+            display: true, 
+            gameStarted: true
+        })
     }
    
     handleClick = (e) => {
-        this.setState({display: true, gameStarted: true})
         this.getSentences()
-        setTimeout(() => this.setState({ display: false}), 5000)
         // return () => clearTimeout(timer);
     }
+
+    handleChange = (e) => {
+        this.setState({answer: e.target.value})
+    }
    
+    handleSubmit = (e) => {
+        e.preventDefault()
+        let newAnswer = this.state.answer
+        let nextTurn = this.state.turn + 1
+        let continueGame = (nextTurn === this.state.number) ? false : true
+        this.setState({ 
+            turn: nextTurn,
+            answer: "",
+            answers: [...this.state.answers, newAnswer], 
+            display: continueGame,
+            gameStarted: continueGame
+        })
+
+    }
+
+    renderResults = () => {
+        if (!this.state.gameStarted && this.state.answers.length > 0) {
+           return <Results gameSentences={this.state.gameSentences} answers={this.state.answers} />
+        }
+    }
+
     renderGame = () => {
         if (this.state.gameStarted) {
-            //  return this.displaySentence()
                 if (this.state.display) {
-                    // debugger
-                    return this.state.gameSentences[0].content
+                    setTimeout(() => this.setState({ display: false}), 1000)
+                    return this.state.gameSentences[this.state.turn].content
                 } else {
-                    return "FORM"
+                    return <form onSubmit={this.handleSubmit}>Type the sentence you just read here: <input type="text" name="answer" onChange={this.handleChange} value={this.state.answer} /><br /><input type="submit" /></form>
                 }
         } else {
-             return <button onClick={this.handleClick}>Start Game</button>
+             return <>{this.renderResults()}<br /><button onClick={this.handleClick}>Start Game</button></>
         }
     }
    
