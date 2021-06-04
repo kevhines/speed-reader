@@ -8,8 +8,8 @@ import Home from "./components/Home"
 import EditSentence from "./components/EditSentence"
 import fetchSentences from './actions/fetchSentences'
 import findUser from './actions/findUser'
-import SignUp from "./components/SignUp"
 import LogIn from "./components/LogIn"
+
 
 class App extends Component {
 
@@ -43,7 +43,7 @@ componentDidUpdate(prevProps) {
       <Route exact path="/" component={Home} />
       <Route exact path='/sentences' component={SentenceContainer} />
       <Route exact path='/sentences/:sentenceID/edit' component={routerProps => <EditSentence {...routerProps} />} />
-      <Route exact path='/signup' render={routerProps => <SignUp {...routerProps} />} />
+      <Route exact path='/signup' render={routerProps => <LogIn {...routerProps} />} />
       <Route exact path='/login' render={routerProps => <LogIn {...routerProps} />} />
       <Route exact path='/game' component={GameContainer} />
      </Router>

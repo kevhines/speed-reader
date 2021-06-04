@@ -1,10 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import LogInForm from './LogInForm'
-
 import loginUser from '../actions/loginUser'
 import logoutUser from '../actions/logoutUser'
-import addUser from '../actions/addUser'
 
 class LogIn extends Component {
 
@@ -16,23 +13,19 @@ class LogIn extends Component {
         }
     }
 
-    handleChange = (text) => {
-        this.setState({...this.state, ...text})
+    handleChange = (e) => {
+        this.setState({[e.target.name]: e.target.value})
     }
 
     handleSubmit = (e) => {
-        console.log("NEW login code goes here")
+        e.preventDefault()
+        console.log("login code goes here")
         console.log(this)
         let newUser = {user: this.state}
         console.log(newUser)
-        if (this.props.match.path === "/login") {
-            console.log("log in")
-            this.props.loginUser(newUser)
-        } else {
-            console.log("sign up")
-            this.props.addUser(newUser)
-        }
-            this.props.history.push("/")
+        // debugger
+        this.props.loginUser(newUser)
+        this.props.history.push("/")
     }
 
     componentDidMount() {
@@ -46,10 +39,14 @@ class LogIn extends Component {
     }
 
     render() {
-        console.log("NEW login page")
+        console.log("login page")
         console.log(this.props)
     return (
-        <LogInForm submitCallback={this.handleSubmit} formState={this.state} updateStateInParent={this.handleChange}/>
+        <form onSubmit={this.handleSubmit}>
+            UserName: <input type="text" name="username" onChange={this.handleChange} value={this.state.username} /><br />
+            Password: <input type="password" name="password" onChange={this.handleChange} value={this.state.password} /><br />
+            <input type="submit" />
+        </form>
     )
     }
 }
@@ -60,4 +57,4 @@ function mapStateToProps(state) {
     return {user: state.user}
   }
 
-export default connect(mapStateToProps, {loginUser, logoutUser, addUser})(LogIn)
+export default connect(mapStateToProps, {loginUser, logoutUser})(LogIn)
