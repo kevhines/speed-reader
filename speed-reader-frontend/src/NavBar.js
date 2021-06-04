@@ -7,19 +7,19 @@ export default function NavBar(props) {
   console.log("navbar")
 console.log(props.userID)
   return (
-      <>
-          <NavLink to="/">Home</NavLink> 
+        <div className="navbar">
+          <NavLink exact to="/" activeClassName="selected">Speed Reader Test</NavLink> 
           {props.userID ? loggedIn() : loggedOut()}
-      </>
+        </div>
   )
 
 }
 
 const loggedIn = () => {
-    return <> | <NavLink to="/sentences">Sentence Management</NavLink> | <NavLink to="/game">Test Your Speed Reading!</NavLink> | <NavLink to="/login">Log Out</NavLink></>
+    return <> | <NavLink to="/sentences" activeClassName="selected">Sentence Management</NavLink> | <NavLink to="/game" activeClassName="selected">Test Your Speed Reading!</NavLink> | <NavLink to="/login">Log Out</NavLink></>
 }
 
 const loggedOut = () => {
-    return <> | <NavLink to="/login">Login</NavLink> | <NavLink to="/signup">Sign Up</NavLink></>
+    return <> | <NavLink to="/login" activeClassName="selected">Login</NavLink> | <NavLink to="/signup" activeClassName="selected">Sign Up</NavLink></>
 }
 

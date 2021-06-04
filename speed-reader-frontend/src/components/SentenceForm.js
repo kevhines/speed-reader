@@ -23,10 +23,13 @@ class SentenceForm extends Component {
 
     render() {
     return (
+        <>
+        <h2>Add a New Sentence</h2> 
         <form onSubmit={this.handleSubmit}>
-            <textarea name="content" rows="5" cols="60" onChange={this.handleChange} value={this.state.content} />
-            <input type="submit" />
+            <textarea name="content" rows="5" cols="60" onChange={this.handleChange} value={this.state.content} /><br />
+            <input className="button1" type="submit" />
         </form>
+        </>
     )
     }
 }

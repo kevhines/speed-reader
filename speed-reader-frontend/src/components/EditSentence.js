@@ -28,25 +28,24 @@ class EditSentence extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state)
-        this.props.editSentence(this.state)
-        this.props.history.push("/sentences")
-    }
-
-    handleClick = (e) => {
-        this.props.delSentence(this.state.id)
         // debugger
+        console.log(this.state)
+        if (e.nativeEvent.submitter.name === "delete") {
+            this.props.delSentence(this.state.id)
+        } else {
+            this.props.editSentence(this.state)
+        }
         this.props.history.push("/sentences")
     }
 
     render() {
     return (
         <>
+        <h2>Edit Sentence</h2>
         <form onSubmit={this.handleSubmit}>
         <textarea name="content" rows="5" cols="60" onChange={this.handleChange} value={this.state.content} />
-            <input type="submit" />
+        <br /><input className="button1" type="submit" name="edit" value="Edit" /> <input className="button1" type="submit" name="delete"  value="Delete" /> 
         </form>
-        <button onClick={this.handleClick}>Delete</button>
         </>
     )
     }
