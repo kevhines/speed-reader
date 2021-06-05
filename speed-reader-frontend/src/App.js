@@ -18,8 +18,6 @@ class App extends Component {
 
 
   componentDidMount() {
-    // debugger
-    console.log("mounted: data fetching")
     this.props.fetchSentences()
     let userID = localStorage.getItem('userID');
     if (userID) {
@@ -28,13 +26,8 @@ class App extends Component {
 }
 
 componentDidUpdate(prevProps) {
-    console.log("updated App")
-    console.log(prevProps)
-    console.log(this.props)
-    // debugger
     let storedID = localStorage.getItem('userID');
     if (this.props.user.id && this.props.user.id !== storedID ) { //and doesn't equal current userID
-      console.log("setting local storage in APP")
       localStorage.setItem('userID', this.props.user.id);
     }
 }
@@ -58,7 +51,6 @@ componentDidUpdate(prevProps) {
 
 
 function mapStateToProps(state) {
-  // debugger
   return {user: state.user}
 }
 

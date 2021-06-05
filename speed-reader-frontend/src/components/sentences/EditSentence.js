@@ -28,8 +28,6 @@ class EditSentence extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        // debugger
-        console.log(this.state)
         if (e.nativeEvent.submitter.name === "delete") {
             this.props.delSentence(this.state.id)
         } else {
@@ -52,7 +50,6 @@ class EditSentence extends Component {
 }
 
 function mapStateToProps(state) {
-    // debugger
     return {sentences: state.sentences}
   }
 

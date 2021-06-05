@@ -6,14 +6,10 @@ class Sentences extends Component {
 
 
     renderSentences = () => {
-        console.log("got to Sentences render") 
-// debugger
-            // return this.props.sentences.map(sentence => <li key={sentence.id}><Link to={`/sentences/${sentence.id}/edit`}>{sentence.content}</Link></li>) 
-            return this.props.sentences.map(sentence => <Sentence key={sentence.id} sentence={sentence} />)
+        return this.props.sentences.map(sentence => <Sentence key={sentence.id} sentence={sentence} />)
     }
 
     render() {
-        // debugger
     return (
         <>
         <h2>All Sentences</h2>
@@ -24,7 +20,6 @@ class Sentences extends Component {
 }
 
 function mapStateToProps(state) {
-    // debugger
     return {sentences: state.sentences}
   }
   

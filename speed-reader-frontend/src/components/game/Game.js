@@ -87,7 +87,6 @@ class Game extends Component {
 
 
 function mapStateToProps(state) {
-    // debugger
     return {sentences: state.sentences}
   }
   

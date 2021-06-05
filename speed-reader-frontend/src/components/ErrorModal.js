@@ -18,12 +18,7 @@ class ErrorModal extends React.Component {
       };
 
       componentDidUpdate(prevProps) {
-        console.log("updated Modal")
-        console.log(prevProps)
-        console.log(this.props)
-        // debugger
         if (this.props.error && !prevProps.error) {
-          // debugger
           this.setState({
             show: true
           });
@@ -32,7 +27,6 @@ class ErrorModal extends React.Component {
     }
 
     render() {
-      // debugger
         if(!this.state.show){
             return null;
         }
@@ -47,7 +41,6 @@ class ErrorModal extends React.Component {
   }
 
   function mapStateToProps(state) {
-    // debugger
     return {error: state.error}
   }
 

@@ -12,7 +12,6 @@ function Results(props){
     let scores = []
 
     for (let i=0; i < props.answers.length; i++) {
-        // debugger
         answerWords = props.answers[i].split(' ')
         testWords = props.gameSentences[i].content.split(' ')
         totalWords += testWords.length
@@ -30,7 +29,6 @@ function Results(props){
     }
     scores.push("Total: " + totalRight + " words out of " + totalWords + " correct")
     let results3 = scores.map(score => <>{score}<br /></> )
-    // debugger
     
     return (
           <>
