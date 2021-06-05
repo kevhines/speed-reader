@@ -7,7 +7,10 @@ export default function manageUser(state = {}, action) {
 
     case 'LOGOUT_USER':
         return {username: {}}
- 
+
+    case 'ADD_SCORE':
+        return {...state, scores:[...state.scores, action.payload]}    
+
     default:    
         return state
     }
