@@ -14,9 +14,9 @@ class LogInForm extends React.Component {
 
     return (
     <form onSubmit={this.handleSubmit}>
-        UserName: <input type="text" name="username" onChange={this.handleChange} value={this.props.formState.username} /><br />
-        Password: <input type="password" name="password" onChange={this.handleChange} value={this.props.formState.password} /><br />
-        <input type="submit" />
+        <label>UserName:</label> <input type="text" name="username" onChange={this.handleChange} value={this.props.formState.username} /><br />
+        <label>Password: </label> <input type="password" name="password" onChange={this.handleChange} value={this.props.formState.password} /><br />
+        <input type="submit" className="button1" />
     </form>
     )
   }

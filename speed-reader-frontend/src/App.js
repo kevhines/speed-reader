@@ -9,7 +9,8 @@ import EditSentence from "./components/EditSentence"
 import fetchSentences from './actions/fetchSentences'
 import findUser from './actions/findUser'
 import LogIn from "./components/LogIn"
-import ErrorModal from "./components/ErrorModal"
+// import ErrorModal from "./components/ErrorModal"
+// {/* <ErrorModal show={this.state.show} onClose={this.showModal}>Hello Modal Hi Hi</ErrorModal> */}
 
 
 
@@ -60,7 +61,6 @@ showModal = (e) => {
       <Route exact path='/signup' render={routerProps => <LogIn {...routerProps} />} />
       <Route exact path='/login' render={routerProps => <LogIn {...routerProps} />} />
       <Route exact path='/game' component={GameContainer} />
-      <ErrorModal show={this.state.show} onClose={this.showModal}>Hello Modal Hi Hi</ErrorModal>
      </Router>
   )
   }
