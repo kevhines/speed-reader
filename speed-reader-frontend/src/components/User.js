@@ -10,6 +10,8 @@ class ErrorModal extends React.Component {
 
 
     render() {
+        // debugger
+        if (this.props.user.id) {
         return <>
                 <h1>{this.props.user.username}</h1>
                 <h2>Scores</h2>
@@ -17,7 +19,10 @@ class ErrorModal extends React.Component {
                 <tr><th className="first">Percent Correct</th><th>Date</th></tr>
                 {this.renderScores()}
                 </table>
-                </>
+               </>
+        } else {
+            return null
+        }
     }
 }
 
