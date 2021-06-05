@@ -6,7 +6,14 @@ export default function addSentence(content) {
         headers: {Accept: "application/json", "Content-Type": "application/json"},
         body: JSON.stringify({sentence: {content: content}})
       }).then(r => r.json())
-      .then(sentence => dispatch({type: "ADD_SENTENCE", payload: sentence}))
+      .then(sentence => {
+        if (sentence.message) {
+          dispatch({type: "DISPLAY_ERROR", payload: sentence})
+        } else {
+          dispatch({type: "ADD_SENTENCE", payload: sentence})
+        }
+      })
+   
     }
 
 }

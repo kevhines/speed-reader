@@ -5,7 +5,7 @@ class UsersController < ApplicationController
         if user.save
             render json: user
         else
-            render json: {message: "username already exists"}
+            render json: {message: "Username already exists"}
         end
     end
 
@@ -14,9 +14,9 @@ class UsersController < ApplicationController
         if user && user.authenticate(params[:user][:password])
             render json: user
         elsif user
-            render json: "Invalid Password"
+            render json:  {message: "Invalid Password"}
         else
-            render json: "Invalid username"
+            render json:  {message: "Invalid Username"}
         end
     end  
 
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
         if user
             render json: user
         else
-            render json: "Invalid User ID"
+            render json:  {message: "Can Not Find User ID"}
         end
     end  
 

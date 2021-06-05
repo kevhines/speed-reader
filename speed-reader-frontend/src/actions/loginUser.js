@@ -8,7 +8,14 @@ export default function loginUser(user) {
       headers: {Accept: "application/json", "Content-Type": "application/json"},
       body: JSON.stringify(user)
     }).then(r => r.json())
-    .then(user => dispatch({type: "LOGIN_USER", payload: user}))
+    .then(user => {
+      if (user.message) {
+        dispatch({type: "DISPLAY_ERROR", payload: user})
+      } else {
+        dispatch({type: "LOGIN_USER", payload: user})
+      }
+    })
+   
   }
 
 }

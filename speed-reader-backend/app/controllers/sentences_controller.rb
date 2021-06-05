@@ -10,7 +10,7 @@ class SentencesController < ApplicationController
         if sentence.save
             render json: sentence
         else
-            render json: {message: "Create Sentence Failed!"}
+            render json: {message: "Sentence Can Not Be Blank!"}
         end
     
     end
@@ -20,7 +20,7 @@ class SentencesController < ApplicationController
         if sentence.update(sentence_params)
             render json: sentence
         else
-            render json: "Sentence Update Failed!"
+            render json: {message: "Sentence Can Not Be Blank!"}
         end
     
     end
