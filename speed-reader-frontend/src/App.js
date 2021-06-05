@@ -50,7 +50,7 @@ componentDidUpdate(prevProps) {
 
 
 function mapStateToProps(state) {
-  return {user: state.user}
+  return {user: {id: state.user.id}}
 }
 
 export default connect(mapStateToProps, {fetchSentences, findUser})(App)

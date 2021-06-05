@@ -34,6 +34,7 @@ function Results(props){
     }
 
     let finalScore = (totalRight/totalWords * 100).toFixed(2)
+    props.addScore(finalScore)
  
     return (
           <>
