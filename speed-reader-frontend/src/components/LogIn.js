@@ -46,8 +46,6 @@ class LogIn extends Component {
     }
 
     render() {
-        console.log("NEW login page")
-        console.log(this.props)
     return (
         <LogInForm submitCallback={this.handleSubmit} formState={this.state} updateStateInParent={this.handleChange}/>
     )

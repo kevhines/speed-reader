@@ -5,7 +5,7 @@ class UsersController < ApplicationController
         if user.save
             render json: user
         else
-            render json: "Sign Up Failed!"
+            render json: {message: "username already exists"}
         end
     end
 

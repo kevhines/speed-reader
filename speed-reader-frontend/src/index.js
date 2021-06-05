@@ -6,13 +6,15 @@ import App from './App';
 import {createStore, compose, applyMiddleware, combineReducers} from 'redux'
 import manageSentences from './reducers/manageSentences'
 import manageUser from './reducers/manageUser'
+import manageErrors from './reducers/manageErrors'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 
 const rootReducer = combineReducers({
   sentences: manageSentences,
-  user: manageUser
+  user: manageUser,
+  error: manageErrors
 });
 
 const store = createStore(rootReducer, compose(applyMiddleware(thunk), composeWithDevTools()))

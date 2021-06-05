@@ -9,16 +9,14 @@ import EditSentence from "./components/EditSentence"
 import fetchSentences from './actions/fetchSentences'
 import findUser from './actions/findUser'
 import LogIn from "./components/LogIn"
-// import ErrorModal from "./components/ErrorModal"
-// {/* <ErrorModal show={this.state.show} onClose={this.showModal}>Hello Modal Hi Hi</ErrorModal> */}
+import ErrorModal from "./components/ErrorModal"
+
 
 
 
 class App extends Component {
 
-  state = {
-    show: true
-  };
+
 
 
   componentDidMount() {
@@ -35,21 +33,14 @@ componentDidUpdate(prevProps) {
     console.log("updated App")
     console.log(prevProps)
     console.log(this.props)
-    if (this.props.user.id) { //and doesn't equal current userID
+    // debugger
+    let storedID = localStorage.getItem('userID');
+    if (this.props.user.id && this.props.user.id !== storedID ) { //and doesn't equal current userID
+      console.log("setting local storage in APP")
       localStorage.setItem('userID', this.props.user.id);
     }
-    let tempID = localStorage.getItem('userID');
-    console.log(tempID)
 }
  
-
-showModal = (e) => {
-  console.log(this.state.show)
-  this.setState({
-    show: !this.state.show
-  });
-};
-
   render () {
 
   return (
@@ -61,6 +52,7 @@ showModal = (e) => {
       <Route exact path='/signup' render={routerProps => <LogIn {...routerProps} />} />
       <Route exact path='/login' render={routerProps => <LogIn {...routerProps} />} />
       <Route exact path='/game' component={GameContainer} />
+      <ErrorModal />
      </Router>
   )
   }
