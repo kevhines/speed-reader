@@ -19,12 +19,9 @@ class Game extends Component {
     }
 
     getSentences = () => {
-        console.log(this.props.sentences)
         const shuffled = [...this.props.sentences].sort(() => Math.random() - Math.random())
-        console.log(shuffled)
         let n = this.state.number
         let selected = shuffled.slice(0, n);
-        console.log(selected)
         this.setState({
             gameSentences: selected, 
             display: true, 

@@ -10,7 +10,6 @@ class ErrorModal extends React.Component {
 
 
     onClick = (e) => {
-        console.log(this.state.show)
         this.setState({
           show: false
         });

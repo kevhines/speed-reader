@@ -11,7 +11,6 @@ export default function manageUser(state = {}, action) {
         return {username: action.payload.username, id: action.payload.id}
 
     case 'LOGOUT_USER':
-        console.log(action.payload)
         return {username: {}}
  
     default:    

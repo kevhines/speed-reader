@@ -2,10 +2,6 @@ import {NavLink} from 'react-router-dom'
 
 
 export default function NavBar(props) {
-  // localStorage.setItem('userID', "");
-  // localStorage.setItem('userID', 1);
-  console.log("navbar")
-console.log(props.userID)
   return (
     <>
         <h1>The Speed Reading Tester</h1>

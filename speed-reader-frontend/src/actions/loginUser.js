@@ -1,8 +1,6 @@
 export default function loginUser(user) {
 
     return function(dispatch) {
-      console.log("loginUser action:")
-        console.log(user)
     fetch("http://localhost:3001/login", {
       method: "POST",
       headers: {Accept: "application/json", "Content-Type": "application/json"},
