@@ -10,7 +10,7 @@ class SentencesController < ApplicationController
         if sentence.save
             render json: sentence
         else
-            render json: "Create Sentence Failed!"
+            render json: {message: "Create Sentence Failed!"}
         end
     
     end

@@ -9,9 +9,15 @@ import EditSentence from "./components/EditSentence"
 import fetchSentences from './actions/fetchSentences'
 import findUser from './actions/findUser'
 import LogIn from "./components/LogIn"
+import ErrorModal from "./components/ErrorModal"
+
 
 
 class App extends Component {
+
+  state = {
+    show: true
+  };
 
 
   componentDidMount() {
@@ -35,6 +41,14 @@ componentDidUpdate(prevProps) {
     console.log(tempID)
 }
  
+
+showModal = (e) => {
+  console.log(this.state.show)
+  this.setState({
+    show: !this.state.show
+  });
+};
+
   render () {
 
   return (
@@ -46,6 +60,7 @@ componentDidUpdate(prevProps) {
       <Route exact path='/signup' render={routerProps => <LogIn {...routerProps} />} />
       <Route exact path='/login' render={routerProps => <LogIn {...routerProps} />} />
       <Route exact path='/game' component={GameContainer} />
+      <ErrorModal show={this.state.show} onClose={this.showModal}>Hello Modal Hi Hi</ErrorModal>
      </Router>
   )
   }
