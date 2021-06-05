@@ -2,7 +2,6 @@ import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
 import Results from './Results'
 
-
 class Game extends Component {
 
     constructor(props) {
@@ -50,7 +49,6 @@ class Game extends Component {
             display: continueGame,
             gameStarted: continueGame
         })
-
     }
 
     renderResults = () => {

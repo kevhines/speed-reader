@@ -2,7 +2,7 @@ export default function editSentence(sentence) {
 
     return function(dispatch) {
       let url = `http://localhost:3001/sentences/${sentence.id}`
-      fetch(url, {
+    fetch(url, {
       method: "PATCH",
       headers: {Accept: "application/json", "Content-Type": "application/json"},
       body: JSON.stringify({sentence})

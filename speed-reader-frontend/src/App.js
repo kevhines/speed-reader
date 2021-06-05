@@ -14,9 +14,6 @@ import findUser from './actions/findUser'
 
 class App extends Component {
 
-
-
-
   componentDidMount() {
     this.props.fetchSentences()
     let userID = localStorage.getItem('userID');

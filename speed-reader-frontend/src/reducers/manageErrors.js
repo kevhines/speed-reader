@@ -4,7 +4,6 @@ export default function manageError(state = "", action) {
 
     case 'DISPLAY_ERROR':
         return action.payload.message
- 
 
     case 'CLEAR_ERROR':
         return ""

@@ -2,18 +2,8 @@ import {NavLink} from 'react-router-dom'
 
 
 export default function NavBar(props) {
-  return (
-    <>
-        <h1>The Speed Reading Tester</h1>
-        <div className="navbar">
-          {props.userID ? loggedIn() : loggedOut()}
-        </div>
-    </>
-  )
 
-}
-
-const loggedIn = () => {
+  const loggedIn = () => {
     return <> 
             <NavLink to="/game" activeClassName="selected">Test Your Speed Reading!</NavLink>
             <NavLink to="/sentences" activeClassName="selected">Sentence Management</NavLink>
@@ -25,5 +15,16 @@ const loggedOut = () => {
             <NavLink exact to="/" activeClassName="selected">Home</NavLink>
             <NavLink to="/login" activeClassName="selected">Login</NavLink>
             <NavLink to="/signup" activeClassName="selected">Sign Up</NavLink></>
+}
+
+  return (
+    <>
+        <h1>The Speed Reading Tester</h1>
+        <div className="navbar">
+          {props.userID ? loggedIn() : loggedOut()}
+        </div>
+    </>
+  )
+
 }
 

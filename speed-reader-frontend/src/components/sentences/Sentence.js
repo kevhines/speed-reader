@@ -7,8 +7,4 @@ function Sentence(props){
         )
   }
   
-  
-  
-  
-  
   export default Sentence
