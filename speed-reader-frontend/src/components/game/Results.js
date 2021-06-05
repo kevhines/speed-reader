@@ -32,12 +32,15 @@ function Results(props){
         results.push({numberIndex: i, sentence: props.gameSentences[i].content, answer: props.answers[i], results: score, mappedWords: correctWords })
         correct = 0
     }
+
+    let finalScore = (totalRight/totalWords * 100).toFixed(2)
  
     return (
           <>
-            <h3>Results</h3>
-            You got {totalRight} words out of {totalWords} total words correct.<br />
-            That's a score of 100%!<br />
+            <h1>Results</h1>
+            <div className="results">
+            You got {totalRight} words out of {totalWords} total words correct.<br /><br />
+            That's a score of {finalScore}%</div><br />
             {results.map(result => <SentenceResult {...result} />)}
           </>
         )

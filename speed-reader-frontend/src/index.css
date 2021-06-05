@@ -56,6 +56,13 @@
   font-size: 20px;
 }
 
+.results {
+  font-family: Georgia, serif;
+  line-height: 1;
+  font-size: 20px;
+  padding: 5px;
+}
+
 
 .wrong {
   text-decoration: line-through;

@@ -9,12 +9,12 @@ function SentenceResult(props){
     let answerFormatted = answerWords.join(" ")
 
     return (
-        <>
+        <div className='results'>
             <h3>Sentence {props.numberIndex + 1}</h3>
             <b>Correct Sentence:</b> {props.sentence}<br />
-            <b>Your Sentence:</b> {parse(answerFormatted)} <br />
+            <b>Your Sentence:</b> {parse(answerFormatted)} <br /><br />
             That's {props.results}<br />
-        </>
+        </div>
     )
 }
 
