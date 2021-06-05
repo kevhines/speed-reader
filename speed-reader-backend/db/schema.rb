@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_134400) do
+ActiveRecord::Schema.define(version: 2021_06_05_195821) do
+
+  create_table "scores", force: :cascade do |t|
+    t.integer "user_id"
+    t.float "percent"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "sentences", force: :cascade do |t|
     t.string "content"

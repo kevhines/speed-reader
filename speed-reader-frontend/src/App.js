@@ -8,6 +8,7 @@ import Home from "./components/Home"
 import EditSentence from "./components/sentences/EditSentence"
 import LogIn from "./components/login/LogIn"
 import ErrorModal from "./components/ErrorModal"
+import User from "./components/User"
 import fetchSentences from './actions/fetchSentences'
 import findUser from './actions/findUser'
 
@@ -36,7 +37,8 @@ componentDidUpdate(prevProps) {
       <NavBar userID={this.props.user.id} />
       <Route exact path="/" component={Home} />
       <Route exact path='/sentences' component={SentenceContainer} />
-      <Route exact path='/sentences/:sentenceID/edit' component={routerProps => <EditSentence {...routerProps} />} />
+      <Route exact path='/sentences/:sentenceID/edit' render={routerProps => <EditSentence {...routerProps} />} />
+      <Route exact path='/users' component={User} />
       <Route exact path='/signup' render={routerProps => <LogIn {...routerProps} />} />
       <Route exact path='/login' render={routerProps => <LogIn {...routerProps} />} />
       <Route exact path='/game' component={GameContainer} />

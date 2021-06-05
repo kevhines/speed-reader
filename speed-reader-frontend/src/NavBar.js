@@ -6,6 +6,7 @@ export default function NavBar(props) {
   const loggedIn = () => {
     return <> 
             <NavLink to="/game" activeClassName="selected">Test Your Speed Reading!</NavLink>
+            <NavLink to="/users" activeClassName="selected">User Scores</NavLink>
             <NavLink to="/sentences" activeClassName="selected">Sentence Management</NavLink>
             <NavLink to="/login">Log Out</NavLink></>
 }

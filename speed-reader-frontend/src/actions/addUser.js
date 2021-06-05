@@ -10,7 +10,7 @@ export default function addUser(user) {
       if (user.message) {
         dispatch({type: "DISPLAY_ERROR", payload: user})
       } else {
-        dispatch({type: "ADD_USER", payload: user})
+        dispatch({type: "LOGIN_USER", payload: user})
       }
     })
   }
