@@ -23,7 +23,7 @@ class ErrorModal extends React.Component {
         console.log(this.props)
         // debugger
         if (this.props.error && !prevProps.error) {
-          debugger
+          // debugger
           this.setState({
             show: true
           });
