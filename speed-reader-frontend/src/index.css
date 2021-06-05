@@ -36,6 +36,27 @@
   background: #00d9ff;
 }
 
+#instructions {
+  width: 75%;
+  font-family: Georgia, serif;
+  background: lightskyblue;
+  border-style: solid;
+  padding: 5px;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+#gameplay {
+  width: 75%;
+  font-family: Georgia, serif;
+  background: lightskyblue;
+  border-style: solid;
+  padding: 5px;
+  line-height: 1.8;
+  font-size: 20px;
+}
+
+
 
 
 .button1 {

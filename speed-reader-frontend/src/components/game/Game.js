@@ -10,6 +10,7 @@ class Game extends Component {
             gameStarted: false,
             display: false,
             number: 2,
+            timelimit: 1000,
             turn: 0,
             answer: "",
             gameSentences: [],
@@ -52,28 +53,34 @@ class Game extends Component {
     }
 
     renderResults = () => {
-        if (!this.state.gameStarted && this.state.answers.length > 0) {
+        if (this.state.answers.length > 0) {
            return <Results gameSentences={this.state.gameSentences} answers={this.state.answers} />
+        } else {
+            return <div id="instructions"><b>Instructions:</b> Once you click start you will see a series of sentences. Each will appear for only 1.5 seconds. 
+            After each sentenced is removed you will type the exact sentence (including case and punctuation) in the given field.
+            After every sentenced has been played you will get a score to demonstrate how well you did.</div>
         }
     }
 
     renderGame = () => {
         if (this.state.gameStarted) {
                 if (this.state.display) {
-                    setTimeout(() => this.setState({ display: false}), 1000)
-                    return this.state.gameSentences[this.state.turn].content
+                    setTimeout(() => this.setState({ display: false}), this.state.timelimit)
+                    return  <div id="gameplay">
+                                <b>Sentence {this.state.turn}:</b><br />
+                                {this.state.gameSentences[this.state.turn].content}
+                            </div>
                 } else {
                     return <form onSubmit={this.handleSubmit}>Type the sentence you just read here: <input type="text" name="answer" onChange={this.handleChange} value={this.state.answer} /><br /><input type="submit" /></form>
                 }
         } else {
-             return <>{this.renderResults()}<br /><button onClick={this.handleClick}>Start Game</button></>
+             return <>{this.renderResults()}<br /><button onClick={this.handleClick} className="button1">Start Game</button></>
         }
     }
    
     render() {
     return (
         <>
-        Game Happens<br />
         {this.renderGame()}
         </>
     )
