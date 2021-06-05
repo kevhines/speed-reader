@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import addSentence from '../actions/addSentence'
+import addSentence from '../../actions/addSentence'
 
 class SentenceForm extends Component {
 

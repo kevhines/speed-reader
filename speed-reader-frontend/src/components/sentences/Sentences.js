@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
-// import {Link} from 'react-router-dom'
 import Sentence from './Sentence'
 
 class Sentences extends Component {

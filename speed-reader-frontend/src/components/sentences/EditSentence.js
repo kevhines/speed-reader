@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import editSentence from '../actions/editSentence'
-import delSentence from '../actions/delSentence'
+import editSentence from '../../actions/editSentence'
+import delSentence from '../../actions/delSentence'
 
 class EditSentence extends Component {
 

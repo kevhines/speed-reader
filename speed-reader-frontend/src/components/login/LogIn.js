@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import LogInForm from './LogInForm'
 
-import loginUser from '../actions/loginUser'
-import logoutUser from '../actions/logoutUser'
-import addUser from '../actions/addUser'
+import loginUser from '../../actions/loginUser'
+import logoutUser from '../../actions/logoutUser'
+import addUser from '../../actions/addUser'
 
 class LogIn extends Component {
 

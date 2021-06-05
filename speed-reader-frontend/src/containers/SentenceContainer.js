@@ -1,7 +1,5 @@
-// import React, {Fragment} from 'react'
-// import {connect} from 'react-redux'
-import Sentences from "../components/Sentences"
-import SentenceForm from "../components/SentenceForm"
+import Sentences from "../components/sentences/Sentences"
+import SentenceForm from "../components/sentences/SentenceForm"
 
 
 function SentenceContainer(){

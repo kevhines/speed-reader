@@ -5,13 +5,11 @@ import NavBar from './NavBar'
 import SentenceContainer from "./containers/SentenceContainer"
 import GameContainer from "./containers/GameContainer"
 import Home from "./components/Home"
-import EditSentence from "./components/EditSentence"
+import EditSentence from "./components/sentences/EditSentence"
+import LogIn from "./components/login/LogIn"
+import ErrorModal from "./components/ErrorModal"
 import fetchSentences from './actions/fetchSentences'
 import findUser from './actions/findUser'
-import LogIn from "./components/LogIn"
-import ErrorModal from "./components/ErrorModal"
-
-
 
 
 class App extends Component {
