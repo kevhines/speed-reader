@@ -23,9 +23,12 @@ class Game extends Component {
         let n = this.state.number
         let selected = shuffled.slice(0, n);
         this.setState({
-            gameSentences: selected, 
-            display: true, 
-            gameStarted: true
+            gameStarted: true,
+            display: true,
+            turn: 0,
+            answer: "",
+            gameSentences: selected,
+            answers: []
         })
     }
    
@@ -44,11 +47,11 @@ class Game extends Component {
         let nextTurn = this.state.turn + 1
         let continueGame = (nextTurn === this.state.number) ? false : true
         this.setState({ 
+            gameStarted: continueGame,
+            display: continueGame,
             turn: nextTurn,
             answer: "",
-            answers: [...this.state.answers, newAnswer], 
-            display: continueGame,
-            gameStarted: continueGame
+            answers: [...this.state.answers, newAnswer]
         })
     }
 

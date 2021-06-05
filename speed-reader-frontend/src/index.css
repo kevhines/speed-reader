@@ -57,6 +57,9 @@
 }
 
 
+.wrong {
+  text-decoration: line-through;
+}
 
 
 .button1 {
@@ -172,6 +175,7 @@
   h3 {
     font-size: 18px;
     line-height: 36px;
+    text-decoration: underline;
   }
 
   p {

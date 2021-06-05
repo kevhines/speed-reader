@@ -1,49 +1,46 @@
+import SentenceResult from './SentenceResult'
+
 function Results(props){
     
-    let results = props.answers.map(answer => <>{answer}<br /></> )
-    let results2 = props.gameSentences.map(sentence => <>{sentence.content}<br /></> )
-
-    let answerWords
-    let testWords
+    let results = []
+    let numberOfSentences = props.gameSentences.length
+    let answerNumberOfWords
+    let testNumberOfWords
 
     let totalWords = 0
     let totalRight = 0
     let correct = 0
-    let scores = []
+    let score
+    let correctWords = []
 
-    for (let i=0; i < props.answers.length; i++) {
-        answerWords = props.answers[i].split(' ')
-        testWords = props.gameSentences[i].content.split(' ')
-        totalWords += testWords.length
-        for (let j = 0; j < testWords.length; j++) {
-
-            if (answerWords[j] ===  testWords[j]) {    
+    for (let i=0; i < numberOfSentences; i++) {
+        answerNumberOfWords = props.answers[i].split(' ')
+        testNumberOfWords = props.gameSentences[i].content.split(' ')
+        totalWords += testNumberOfWords.length
+        correctWords = []
+        for (let j = 0; j < testNumberOfWords.length; j++) {
+             if (answerNumberOfWords[j] ===  testNumberOfWords[j]) {    
                 correct += 1
+                correctWords.push(true)
+            } else {
+                correctWords.push(false)
             }
-
         }
+
         totalRight += correct
-        scores.push(correct + " words out of " + testWords.length + " correct")
+        score = correct + " words out of " + testNumberOfWords.length + " correct"
+        results.push({numberIndex: i, sentence: props.gameSentences[i].content, answer: props.answers[i], results: score, mappedWords: correctWords })
         correct = 0
-        
     }
-    scores.push("Total: " + totalRight + " words out of " + totalWords + " correct")
-    let results3 = scores.map(score => <>{score}<br /></> )
-    
+ 
     return (
           <>
-            <h2>Results</h2>
-            {results}
-            {results2}
-            {results3}
+            <h3>Results</h3>
+            You got {totalRight} words out of {totalWords} total words correct.<br />
+            That's a score of 100%!<br />
+            {results.map(result => <SentenceResult {...result} />)}
           </>
         )
   }
 
-
-  
-  
-  
-  
-  
   export default Results
