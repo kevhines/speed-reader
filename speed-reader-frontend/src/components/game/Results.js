@@ -1,4 +1,6 @@
 import SentenceResult from './SentenceResult'
+import {connect} from 'react-redux'
+import addScore from '../../actions/addScore'
 
 function Results(props){
     
@@ -35,16 +37,16 @@ function Results(props){
 
     let finalScore = (totalRight/totalWords * 100).toFixed(2)
     props.addScore(finalScore)
- 
+  
     return (
           <>
             <h1>Results</h1>
             <div className="results">
             You got {totalRight} words out of {totalWords} total words correct.<br /><br />
             That's a score of {finalScore}%</div><br />
-            {results.map(result => <SentenceResult {...result} />)}
+            {results.map(result => <SentenceResult key={result.numberIndex} {...result} />)}
           </>
         )
   }
 
-  export default Results
+  export default connect(null,{addScore})(Results)

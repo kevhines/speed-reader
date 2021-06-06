@@ -12,7 +12,7 @@ class ScoresController < ApplicationController
     
     private
     
-    def user_params
+    def score_params
         params.require(:score).permit(:user_id, :percent)
     end
 

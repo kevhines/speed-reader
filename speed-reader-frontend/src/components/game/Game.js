@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
 import Results from './Results'
-import addScore from '../../actions/addScore'
+
 
 class Game extends Component {
 
@@ -56,13 +56,13 @@ class Game extends Component {
         })
     }
 
-    handleScore = (score) => {
-          this.props.addScore({user_id: this.props.user.id, percent: score})
-    }
+    // handleScore = (score) => {
+    //       this.props.addScore({user_id: this.props.user.id, percent: score})
+    // }
 
     renderResults = () => {
         if (this.state.answers.length > 0) {
-           return <Results addScore={this.handleScore} gameSentences={this.state.gameSentences} answers={this.state.answers} />
+           return <Results gameSentences={this.state.gameSentences} userID={this.props.user.id} answers={this.state.answers} />
         } else {
             return <div id="instructions"><b>Instructions:</b> Once you click start you will see a series of sentences. Each will appear for only 1.5 seconds. 
             After each sentenced is removed you will type the exact sentence (including case and punctuation) in the given field.
@@ -101,5 +101,5 @@ function mapStateToProps(state) {
   }
   
   
-  export default connect(mapStateToProps,{addScore})(Game)
+  export default connect(mapStateToProps)(Game)
   
