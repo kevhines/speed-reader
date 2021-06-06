@@ -4,14 +4,16 @@ Describe Here
 
 ## Summary
 
-  - [Version](#Version)
+  - [Versions](#Versions)
   - [Installation](#Installation)
+  - [Future Additions](#Future-Additions)
+  - [Error Modal](#Error-Modal)
   - [Contributing](#contributing)
   - [Authors](#authors)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
-## Version
+## Versions
 
 This code was written in:
 ruby-2.6.1 
@@ -50,11 +52,19 @@ Launch server
 
 Go to local web page: http://localhost:3000/
 
-## Future Additions
+## Future-Additions
 
-- A way to upload your own cards from the front end
-- Alternating turns (letting whoever won a trick play their card first)
-- the ability to change the card, and then rename it and change it's rules.
+- Keep track of difficulty of sentences based on scores people get on them.
+- List difficulties on Sentence Management Page
+- allow users to choose difficulty, number of reps, and maybe time a sentence is on the screen before taking the test.
+- Add User Ownership for Sentences (can only edit your own sentences, won't be tested on your sentenced)
+- ability to flag bad sentenced (gibberish, typos) to take them out of game rotation. Also allow users to correct and unflag those flagged sentences
+- Better comparison. Right now if someone adds word the rest of the sentenced will test as wrong. Sentenced should scan rest of the sentenced if a word doesn't match and give some points.
+
+## Error-Modal
+
+Error Modal code was adapted from Eden Ella's code from his blog post, [Build a simple Modal Component with React](https://blog.bitsrc.io/build-a-simple-modal-component-with-react-16decdc111a6).
+Error Modal styling adapted from Kumar Muthalier's css on his [jsfiddle page](https://jsfiddle.net/kumarmuthaliar/GG9Sa/1/)  
 
 ## Contributing
 
