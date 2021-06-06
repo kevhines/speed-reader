@@ -2,7 +2,6 @@ import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
 import Results from './Results'
 
-
 class Game extends Component {
 
     constructor(props) {
@@ -55,10 +54,6 @@ class Game extends Component {
             answers: [...this.state.answers, newAnswer]
         })
     }
-
-    // handleScore = (score) => {
-    //       this.props.addScore({user_id: this.props.user.id, percent: score})
-    // }
 
     renderResults = () => {
         if (this.state.answers.length > 0) {

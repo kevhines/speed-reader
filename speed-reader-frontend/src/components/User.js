@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 class ErrorModal extends React.Component {
 
     renderScores = () => {
-        return this.props.user.scores.map(score => <tr><td className="first">{score.percent}%</td><td>{score.created_at}</td></tr>)
+        return this.props.user.scores.map((score, i) => <tr key={i}><td className="first">{score.percent}%</td><td>{score.created_at}</td></tr>)
     }
 
 
