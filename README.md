@@ -54,6 +54,7 @@ Go to local web page: http://localhost:3000/
 
 ## Future-Additions
 
+- Add true secure JWT Storage for User ID's
 - Keep track of difficulty of sentences based on scores people get on them.
 - List difficulties on Sentence Management Page
 - allow users to choose difficulty, number of reps, and maybe time a sentence is on the screen before taking the test.
