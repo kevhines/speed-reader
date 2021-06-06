@@ -1,6 +1,7 @@
 export default function addUser(score) {
 
     return function(dispatch) {
+      // debugger
     fetch("http://localhost:3001/scores", {
       method: "POST",
       headers: {Accept: "application/json", "Content-Type": "application/json"},

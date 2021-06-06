@@ -36,7 +36,7 @@ function Results(props){
     }
 
     let finalScore = (totalRight/totalWords * 100).toFixed(2)
-    props.addScore(finalScore)
+    props.addScore({score: {user_id: props.userID, percent: finalScore}})
   
     return (
           <>
