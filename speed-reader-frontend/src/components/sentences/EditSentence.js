@@ -29,11 +29,10 @@ class EditSentence extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         if (e.nativeEvent.submitter.name === "delete") {
-            this.props.delSentence(this.state.id)
+            this.props.delSentence(this.state.id, this.props.history)
         } else {
-            this.props.editSentence(this.state)
+            this.props.editSentence(this.state, this.props.history)
         }
-        this.props.history.push("/sentences")
     }
 
     render() {

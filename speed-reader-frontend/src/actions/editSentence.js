@@ -1,4 +1,4 @@
-export default function editSentence(sentence) {
+export default function editSentence(sentence, history) {
 
     return function(dispatch) {
       let url = `http://localhost:3001/sentences/${sentence.id}`
@@ -12,6 +12,7 @@ export default function editSentence(sentence) {
         dispatch({type: "DISPLAY_ERROR", payload: sentence})
       } else {
         dispatch({type: "EDIT_SENTENCE", payload: sentence})
+        history.push("/sentences")
       }
     })
   }

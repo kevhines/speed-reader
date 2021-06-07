@@ -23,11 +23,10 @@ class LogIn extends Component {
     handleSubmit = (e) => {
         let newUser = {user: this.state}
         if (this.props.match.path === "/login") {
-            this.props.loginUser(newUser)
+            this.props.loginUser(newUser, this.props.history)
         } else {
-            this.props.addUser(newUser)
+            this.props.addUser(newUser, this.props.history)
         }
-            this.props.history.push("/")
     }
 
     componentDidMount() {

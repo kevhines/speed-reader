@@ -1,4 +1,4 @@
-export default function loginUser(user) {
+export default function loginUser(user, history) {
 
     return function(dispatch) {
     fetch("http://localhost:3001/login", {
@@ -11,6 +11,7 @@ export default function loginUser(user) {
         dispatch({type: "DISPLAY_ERROR", payload: user})
       } else {
         dispatch({type: "LOGIN_USER", payload: user})
+        history.push("/users")
       }
     })
    
