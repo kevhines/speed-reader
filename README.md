@@ -1,6 +1,7 @@
 # Speed Reader Test - README
 
-Describe Here
+This application has two parts. The first part is the actual test. You will see posted 5 sentences for just over a second. After each sentence you will be asked to enter the exact sentence you just read. After you've entered all the sentenced you will be shown how well you did at replicating the sentences. Practice to get better at reading quickly while still remembering the exact details.
+The other part of this application allows you to enter setenceds to be used in the test. You can enter, edit, or delete any setences. In future implementations you will only be allowed to Edit or Delete sentences you created.
 
 ## Summary
 
