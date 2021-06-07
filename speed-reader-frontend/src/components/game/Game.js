@@ -9,8 +9,8 @@ class Game extends Component {
         this.state = {
             gameStarted: false,
             display: false,
-            number: 2,
-            timelimit: 1000,
+            number: 5,
+            timelimit: 1500,
             turn: 0,
             answer: "",
             gameSentences: [],
