@@ -5,6 +5,12 @@ import {connect} from 'react-redux'
 class ErrorModal extends React.Component {
 
     renderScores = () => {
+        this.props.user.scores.sort((firstEl, secondEl) => {
+            let a = new Date(firstEl.created_at)
+            let b = new Date(secondEl.created_at) 
+            return b - a
+        })
+        // debugger
         return this.props.user.scores.map((score, i) => <tr key={i}><td className="first">{score.percent}%</td><td>{score.created_at}</td></tr>)
     }
 

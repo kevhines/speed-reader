@@ -70,7 +70,7 @@ class Game extends Component {
                 if (this.state.display) {
                     setTimeout(() => this.setState({ display: false}), this.state.timelimit)
                     return  <div id="gameplay">
-                                <b>Sentence {this.state.turn}:</b><br />
+                                <b>Sentence {this.state.turn + 1}:</b><br />
                                 {this.state.gameSentences[this.state.turn].content}
                             </div>
                 } else {
