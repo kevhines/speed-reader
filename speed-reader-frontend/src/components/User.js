@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from 'react-redux'
 
 
-class ErrorModal extends React.Component {
+class User extends React.Component {
 
     renderScores = () => {
         this.props.user.scores.sort((firstEl, secondEl) => {
@@ -10,13 +10,11 @@ class ErrorModal extends React.Component {
             let b = new Date(secondEl.created_at) 
             return b - a
         })
-        // debugger
         return this.props.user.scores.map((score, i) => <tr key={i}><td className="first">{score.percent}%</td><td>{score.created_at}</td></tr>)
     }
 
 
     render() {
-        // debugger
         if (this.props.user.id) {
         return <>
                 <h1>{this.props.user.username}</h1>
@@ -36,4 +34,4 @@ function mapStateToProps(state) {
     return {user: state.user}
   }
 
-  export default connect(mapStateToProps)(ErrorModal)
+  export default connect(mapStateToProps)(User)
