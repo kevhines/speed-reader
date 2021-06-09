@@ -46,13 +46,23 @@ class Game extends Component {
         let newAnswer = this.state.answer
         let nextTurn = this.state.turn + 1
         let continueGame = (nextTurn === this.state.number) ? false : true
-        this.setState({ 
-            gameStarted: continueGame,
-            display: continueGame,
-            turn: nextTurn,
-            answer: "",
-            answers: [...this.state.answers, newAnswer]
+        this.setState((prevState) => {
+           return {gameStarted: continueGame,
+                display: continueGame,
+                turn: nextTurn,
+                answer: "",
+                answers: [...prevState.answers, newAnswer] }
         })
+        // this.setState((prevState)=>{return {value: prevState + 1})
+
+
+        // this.setState({ 
+        //     gameStarted: continueGame,
+        //     display: continueGame,
+        //     turn: nextTurn,
+        //     answer: "",
+        //     answers: [...this.state.answers, newAnswer]
+        // })
     }
 
     renderResults = () => {
