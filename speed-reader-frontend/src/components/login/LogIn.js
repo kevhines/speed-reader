@@ -17,7 +17,8 @@ class LogIn extends Component {
     }
 
     handleChange = (text) => {
-        this.setState({...this.state, ...text})
+        // debugger
+        this.setState(text)
     }
 
     handleSubmit = (e) => {
